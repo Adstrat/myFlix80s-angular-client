@@ -34,7 +34,9 @@ export class UserRegistrationService {
       'Something went wrong; please try again later.');
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // User Login
 export class UserLoginService {
   constructor(private http: HttpClient) {
@@ -58,7 +60,9 @@ export class UserLoginService {
       'Something went wrong; please try again later.');
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Get all movies
 export class GetAllMoviesService {
   constructor(private http: HttpClient) {
@@ -91,7 +95,9 @@ export class GetAllMoviesService {
       'Something went wrong; please try again later.');
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Get one movie
 export class GetOneMovieService {
   constructor(private http: HttpClient) { }
@@ -126,7 +132,9 @@ export class GetOneMovieService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Get director
 export class GetDirectorService {
   constructor(private http: HttpClient) { }
@@ -160,7 +168,9 @@ export class GetDirectorService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Get genre
 export class GetGenreService {
   constructor(private http: HttpClient) { }
@@ -195,7 +205,9 @@ export class GetGenreService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Get user by username
 export class GetUserService {
   constructor(private http: HttpClient) { }
@@ -230,7 +242,9 @@ export class GetUserService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Add a movie to favorite Movies
 export class AddFavoriteMovieService {
   constructor(private http: HttpClient) { }
@@ -265,7 +279,9 @@ export class AddFavoriteMovieService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Edit user
 export class EditUserService {
   constructor(private http: HttpClient) { }
@@ -300,7 +316,9 @@ export class EditUserService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Delete user
 export class DeleteUserService {
   constructor(private http: HttpClient) { }
@@ -334,7 +352,9 @@ export class DeleteUserService {
     );
   }
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 // Delete a movie form the favorite movies
 export class DeleteFavoriteMovieService {
   constructor(private http: HttpClient) { }
