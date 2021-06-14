@@ -19,6 +19,11 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { MovieViewComponent } from './movie-view/movie-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { UpdateViewComponent } from './update-view/update-view.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -33,6 +38,11 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
+    MovieViewComponent,
+    DirectorViewComponent,
+    GenreViewComponent,
+    ProfileViewComponent,
+    UpdateViewComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
