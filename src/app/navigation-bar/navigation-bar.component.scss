@@ -1,0 +1,33 @@
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  background-color: #e6f9ff;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.app-title {
+  font-size: 24px;
+  margin-left: 20px;
+  color: #b30000;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+button {
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: #004d66;
+}
+
+.nav-links {
+  margin-right: 20px;
+}
