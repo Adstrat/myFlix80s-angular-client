@@ -25,9 +25,20 @@
 button {
   font-size: 17px;
   letter-spacing: 1px;
-  color: #004d66;
+  color: #003366;
 }
 
 .nav-links {
   margin-right: 20px;
+}
+
+@media only screen and (max-width: 440px) {
+  .app-title {
+    margin-left: 0;
+  }
+
+ .nav-links {
+   margin-right: 0;
+  text-align: right;
+ }
 }
