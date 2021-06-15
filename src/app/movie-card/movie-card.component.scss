@@ -1,0 +1,52 @@
+.background {
+  background-color: #e6f9ff;
+}
+
+.movie-intro {
+ margin-top: 60px;
+ text-align: center;
+ padding: 10px;
+ font-size: 24px;
+ color: #b30000;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  margin: 15px;
+  padding: 20px;
+  width: 220px;
+  border: 1px solid #b30000;
+  background-color: #ffe799;
+}
+
+.movie-header {
+  color: #003366;
+}
+
+.movie-image {
+  width: 100%;
+  border: 1px solid #003366;
+  border-radius: 8px;;
+}
+
+.movie-details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.favorite-button {
+  margin-left: 6px;
+  display: flex;
+  flex-direction: row;
+}
+
+.favorite-text {
+  margin: 1px 0 10px 6px;
+  color: #b30000;
+}
