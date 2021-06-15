@@ -24,6 +24,7 @@ import { DirectorViewComponent } from './director-view/director-view.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { UpdateViewComponent } from './update-view/update-view.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     GenreViewComponent,
     ProfileViewComponent,
     UpdateViewComponent,
+    NavigationBarComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
