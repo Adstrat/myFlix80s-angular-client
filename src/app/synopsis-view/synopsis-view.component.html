@@ -1,1 +1,13 @@
-<p>synopsis-view works!</p>
+<mat-toolbar>
+  <mat-toolbar-row class="synopsis-header">
+    <h4 mat-dialog-title class="synopsis-title">
+      {{ data.title }}
+    </h4>
+    <button mat-icon-button aria-label="Close button with an X" mat-dialog-close color="primary">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="synopsis-content">
+  {{ data.description }}
+</mat-dialog-content>
