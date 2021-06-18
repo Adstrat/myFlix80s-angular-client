@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+// Fetch API data
 import {
   GetUserService,
 } from '../fetch-api-data.service';
+
+// Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
+// Components
+import { UpdateViewComponent } from '../update-view/update-view.component';
 
 @Component({
   selector: 'app-profile-view',
@@ -34,6 +39,15 @@ export class ProfileViewComponent implements OnInit {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
 
+    });
+  }
+
+  /**
+   * Opens the dialog box where the user can update their information
+   */
+  openUpdateViewDialog(): void {
+    this.dialog.open(UpdateViewComponent, {
+      width: '280px',
     });
   }
 
