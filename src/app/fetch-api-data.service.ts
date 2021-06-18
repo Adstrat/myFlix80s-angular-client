@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://my-flix80s.herokuapp.com/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +35,7 @@ export class UserRegistrationService {
       'Something went wrong; please try again later.');
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,6 +62,7 @@ export class UserLoginService {
       'Something went wrong; please try again later.');
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -95,6 +98,7 @@ export class GetAllMoviesService {
       'Something went wrong; please try again later.');
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -132,6 +136,7 @@ export class GetOneMovieService {
     );
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -168,6 +173,7 @@ export class GetDirectorService {
     );
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -205,6 +211,7 @@ export class GetGenreService {
     );
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -243,6 +250,7 @@ export class GetUserService {
     );
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -251,9 +259,10 @@ export class AddFavoriteMovieService {
   constructor(private http: HttpClient) { }
 
   // making the api call to add a movie to a user's list of favorites
-  addFavoriteMovie(): Observable<any> {
+  addFavoriteMovie(_id: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users/:Username/:MovieID', {
+    const username = localStorage.getItem('user');
+    return this.http.post(apiUrl + `users/${username}/${_id}`, _id, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -280,6 +289,7 @@ export class AddFavoriteMovieService {
     );
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -288,45 +298,10 @@ export class EditUserService {
   constructor(private http: HttpClient) { }
 
   // making the api call to edit a user's info
-  editUser(): Observable<any> {
+  editUser(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + 'users/:Username', {
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + token,
-      })
-    }).pipe(map(this.extractResponseData),
-      catchError(this.handleError)
-    );
-  }
-  // Non-typed response extraction
-  private extractResponseData(res: Object): any {
-    const body = res;
-    return body || {};
-  }
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('Some error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Error Status code ${error.status}, ` +
-        `Error body is: ${error.error}`
-      );
-    }
-    return throwError(
-      'Something went wrong: please try again later.'
-    );
-  }
-}
-@Injectable({
-  providedIn: 'root'
-})
-// Delete user
-export class DeleteUserService {
-  constructor(private http: HttpClient) { }
-  // making the api call to delete a user
-  deleteUser(): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/:Username', {
+    const username = localStorage.getItem('user');
+    return this.http.put(apiUrl + `users/${username}`, userDetails, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -353,6 +328,45 @@ export class DeleteUserService {
     );
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+// Delete user
+export class DeleteUserService {
+  constructor(private http: HttpClient) { }
+  // making the api call to delete a user
+  deleteUser(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+    return this.http.delete(apiUrl + `users/${username}`, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+  // Non-typed response extraction
+  private extractResponseData(res: Response | Object): any {
+    const body = res;
+    return body || {};
+  }
+  private handleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Error Status code ${error.status}, ` +
+        `Error body is: ${error.error}`
+      );
+    }
+    return throwError(
+      'Something went wrong: please try again later.'
+    );
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -361,9 +375,10 @@ export class DeleteFavoriteMovieService {
   constructor(private http: HttpClient) { }
 
   // making the api call to delete a movie from favorites
-  deleteFavoriteMovie(): Observable<any> {
+  deleteFavoriteMovie(_id: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/:Username/:MovieID', {
+    const username = localStorage.getItem('user');
+    return this.http.post(apiUrl + `users/${username}/${_id}`, _id, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
