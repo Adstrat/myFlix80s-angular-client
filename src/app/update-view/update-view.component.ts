@@ -16,7 +16,7 @@ export class UpdateViewComponent implements OnInit {
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
-    public fetchApiData: EditUserService,
+    public fetchApiDataEditUser: EditUserService,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<UpdateViewComponent>
   ) { }
@@ -28,7 +28,7 @@ export class UpdateViewComponent implements OnInit {
   * User edits personal data
   */
   editUserInfo(): void {
-    this.fetchApiData.editUser(this.userData).subscribe((response) => {
+    this.fetchApiDataEditUser.editUser(this.userData).subscribe((response) => {
       this.dialogRef.close();
       localStorage.setItem('user', response.Username);
       this.snackBar.open('response', 'OK', {
