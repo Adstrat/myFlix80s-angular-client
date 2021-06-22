@@ -1,0 +1,31 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6f9ff;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-inner {
+  padding-bottom: 20%
+}
+
+.welcome-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.welcome-message {
+  color: #003366;
+}
+
+.title {
+  color: #b30000;
+}
+
+button {
+  background-color: #ffe799;
+}
