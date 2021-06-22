@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   GetUserService,
   GetAllMoviesService,
+  DeleteFavoriteMovieService,
 } from '../fetch-api-data.service';
 
 // Angular Material
@@ -28,6 +29,7 @@ export class ProfileViewComponent implements OnInit {
   constructor(
     public fetchApiDataGetUser: GetUserService,
     public fetchApiDataGetMovies: GetAllMoviesService,
+    public fetchApiDataDeleteFav: DeleteFavoriteMovieService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     public router: Router
@@ -75,6 +77,24 @@ export class ProfileViewComponent implements OnInit {
       this.user.FavouriteMovies.includes(movie._id)
     );
     return this.favorites;
+  }
+
+  /**
+     * Removes movie from the users favourites
+     * @param id 
+     * @param title 
+     */
+  removeFromFavorites(_id: string, title: string): void {
+    this.fetchApiDataDeleteFav.deleteFavoriteMovie(_id).subscribe(() => {
+      this.snackBar.open(
+        `${title} has been removed`, 'OK', {
+        duration: 2000,
+      }
+      );
+      setTimeout(function () {
+        window.location.reload();
+      }, 1000);
+    });
   }
 
 }
