@@ -10,7 +10,6 @@
       <div class="movie-header">
         <mat-card-title>{{movie.Title}}</mat-card-title>
         <mat-card-subtitle>{{movie.Released}}</mat-card-subtitle>
-
       </div>
       <img src={{movie.ImagePath}} alt={{movie.Title}} class="movie-image" />
       <mat-card-actions class="movie-details-container">
@@ -26,8 +25,8 @@
         </button>
       </mat-card-actions>
       <div class="favorite-button" (click)="addFavoriteMovie(movie._id, movie.Title)">
-        <mat-icon mat-button (click)="addFavoriteMovie(movie._id, movie.Title)">favorite_border</mat-icon>
-        <h4 class="favorite-text">Add to Favorites</h4>
+        <mat-icon mat-button>favorite_border</mat-icon>
+        <h4 class="favorite-text">Add to Favourites</h4>
       </div>
     </mat-card>
   </div>
