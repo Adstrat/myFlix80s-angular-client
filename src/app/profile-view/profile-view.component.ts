@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Fetch API data
 import {
   GetUserService,
+  GetAllMoviesService,
 } from '../fetch-api-data.service';
 
 // Angular Material
@@ -18,11 +19,15 @@ import { UpdateViewComponent } from '../update-view/update-view.component';
   templateUrl: './profile-view.component.html',
   styleUrls: ['./profile-view.component.scss']
 })
+
 export class ProfileViewComponent implements OnInit {
   user: any = {};
+  movies: any = [];
+  favorites: any = [];
 
   constructor(
-    public fetchApiData: GetUserService,
+    public fetchApiDataGetUser: GetUserService,
+    public fetchApiDataGetMovies: GetAllMoviesService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     public router: Router
@@ -36,9 +41,9 @@ export class ProfileViewComponent implements OnInit {
    * Gets the user object from the database
    */
   getUserInfo(): void {
-    this.fetchApiData.getUser().subscribe((resp: any) => {
+    this.fetchApiDataGetUser.getUser().subscribe((resp: any) => {
       this.user = resp;
-
+      this.getFavouriteMovies();
     });
   }
 
@@ -51,5 +56,25 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Gets all movies and filters favourite movies
+   */
+  getFavouriteMovies(): void {
+    this.fetchApiDataGetMovies.getAllMovies().subscribe((res: any) => {
+      this.movies = res;
+      this.filterFavorites();
+    });
+  }
+
+  /**
+   * Filters all movies into users favourites
+   * @returns {array}
+   */
+  filterFavorites(): void {
+    this.favorites = this.movies.filter((movie: any) =>
+      this.user.FavouriteMovies.includes(movie._id)
+    );
+    return this.favorites;
+  }
 
 }

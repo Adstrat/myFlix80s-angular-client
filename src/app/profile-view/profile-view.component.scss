@@ -24,3 +24,52 @@ hr {
   background-color: #b30000;
   color: white;
 }
+
+.favourite-container {
+  background-color: #e6f9ff;
+}
+
+.favourite-title {
+  margin-top: 20px;
+  color: #003366;
+}
+
+.favourite-cards {
+  background-color: #e6f9ff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favourite-card {
+  margin: 10px;
+  width: 148px;
+  background-color: #ffe799;
+  border: 1px solid #b30000;
+}
+
+.favourite-card-title {
+  color: #003366;
+}
+
+img {
+  width: 100%;
+  border: 1px solid #003366;
+  border-radius: 8px;;
+}
+
+.delete-favourite-button {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-favourite-button:hover {
+  cursor: pointer;
+}
+
+.delete-favourite-text {
+  margin: 1px 0 10px 6px;
+  color: #b30000;
+}

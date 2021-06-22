@@ -46,6 +46,10 @@
   flex-direction: row;
 }
 
+.favorite-button:hover {
+  cursor: pointer;
+}
+
 .favorite-text {
   margin: 1px 0 10px 6px;
   color: #b30000;
