@@ -31,7 +31,7 @@ export class UpdateViewComponent implements OnInit {
     this.fetchApiDataEditUser.editUser(this.userData).subscribe((response) => {
       this.dialogRef.close();
       localStorage.setItem('user', response.Username);
-      this.snackBar.open('response', 'OK', {
+      this.snackBar.open('Profile updated', 'OK', {
         duration: 2000,
       });
     }, (response) => {
@@ -39,6 +39,9 @@ export class UpdateViewComponent implements OnInit {
         duration: 2000,
       });
     });
+    setTimeout(function () {
+      window.location.reload();
+    }, 1250);
 
   }
 }
