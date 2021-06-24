@@ -5,6 +5,7 @@ import {
   GetUserService,
   GetAllMoviesService,
   DeleteFavoriteMovieService,
+  DeleteUserService,
 } from '../fetch-api-data.service';
 
 // Angular Material
@@ -30,6 +31,7 @@ export class ProfileViewComponent implements OnInit {
     public fetchApiDataGetUser: GetUserService,
     public fetchApiDataGetMovies: GetAllMoviesService,
     public fetchApiDataDeleteFav: DeleteFavoriteMovieService,
+    public fetchApiDataDeleteUser: DeleteUserService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     public router: Router
@@ -95,6 +97,25 @@ export class ProfileViewComponent implements OnInit {
         window.location.reload();
       }, 1000);
     });
+  }
+
+  /**
+   * Users must confirm that they want to delete their profile, then they return to the welcome view.  
+   */
+  deleteProfile(): void {
+    let confirmDelete = confirm("Are you sure you want to delete your profile?");
+    if (confirmDelete) {
+      this.fetchApiDataDeleteUser.deleteUser().subscribe(() => {
+        console.log('Profile Deleted');
+        localStorage.clear();
+        this.router.navigate(['/welcome']);
+        this.snackBar.open('Profile Deleted', 'OK', {
+          duration: 2000,
+        });
+      });
+    } else {
+      window.location.reload();
+    }
   }
 
 }
