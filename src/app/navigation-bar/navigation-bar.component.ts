@@ -17,6 +17,10 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Routes user to Welcome Page when 'Logout' button pressed.
+   * Removes user data from local storage.
+   */
   logoutUser(): void {
     localStorage.clear();
     this.router.navigate(['welcome']);

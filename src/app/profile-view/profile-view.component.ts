@@ -37,6 +37,9 @@ export class ProfileViewComponent implements OnInit {
     public router: Router
   ) { }
 
+  /**
+   * Runs the getUserInfo() function on initialization
+   */
   ngOnInit(): void {
     this.getUserInfo();
   }
@@ -52,7 +55,8 @@ export class ProfileViewComponent implements OnInit {
   }
 
   /**
-   * Opens the dialog box where the user can update their information
+   * Opens a dialog box when 'Update Profile' button is pressed.
+   * The user can update then their information.
    */
   openUpdateViewDialog(): void {
     this.dialog.open(UpdateViewComponent, {
@@ -82,7 +86,8 @@ export class ProfileViewComponent implements OnInit {
   }
 
   /**
-     * Removes movie from the users favourites
+     * Removes movie from the users favourites.
+     * Refreshes page with new favourites list.
      * @param id 
      * @param title 
      */
@@ -100,7 +105,9 @@ export class ProfileViewComponent implements OnInit {
   }
 
   /**
-   * Users must confirm that they want to delete their profile, then they return to the welcome view.  
+   * Opens a dialog box when 'Delete Profile' button is pressed.
+   * Users must confirm that they want to delete their profile, 
+   * then they return to the Welcome Page.  
    */
   deleteProfile(): void {
     let confirmDelete = confirm("Are you sure you want to delete your profile?");

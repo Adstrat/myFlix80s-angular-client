@@ -25,8 +25,9 @@ export class UpdateViewComponent implements OnInit {
   }
 
   /**
-  * User edits personal data
-  */
+   * PUTS new user details in API when 'Update' button is pressed
+   * Refreshes page with new info
+   */
   editUserInfo(): void {
     this.fetchApiDataEditUser.editUser(this.userData).subscribe((response) => {
       this.dialogRef.close();

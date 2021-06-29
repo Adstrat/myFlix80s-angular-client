@@ -31,11 +31,16 @@ export class MovieCardComponent implements OnInit {
     public snackBar: MatSnackBar,
   ) { }
 
-
+  /**
+  * Runs the getMovies() function on initialization
+  */
   ngOnInit(): void {
     this.getMovies();
   }
 
+  /**
+   * Gets a list of all movies in an array
+   */
   getMovies(): void {
     this.fetchApiDataGetMovies.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -46,8 +51,8 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens modal with movie genre data
-   * @param name 
-   * @param description 
+   * @param {string} name 
+   * @param {string} description 
    */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
@@ -58,10 +63,10 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens modal with movie director data
-   * @param name
-   * @param bio
-   * @param birth
-   * @param death
+   * @param {string} name
+   * @param {string} bio
+   * @param {Date} birth
+   * @param {Date} death
    */
   openDirectorDialog(name: string, bio: string, birth: Date, death: Date): void {
     this.dialog.open(DirectorViewComponent, {
@@ -72,8 +77,8 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * Opens modal with movie synopsis data
-   * @param title
-   * @param description
+   * @param {string} title
+   * @param {string} description
    */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisViewComponent, {
@@ -84,7 +89,8 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * adds movie to favorites
-   * @param _id 
+   * @param {string} _id 
+   * @param {string} title
    */
   addFavoriteMovie(_id: string, title: string): void {
     this.fetchApiDataAddFav.addFavoriteMovie(_id).subscribe(() => {
