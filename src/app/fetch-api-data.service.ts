@@ -427,3 +427,10 @@ export class DeleteFavoriteMovieService {
     );
   }
 }
+
+/**
+ * Prevents errors due to the "import { FetchApiDataService }" in fetch-api-data.service.spec.ts
+ */
+export class FetchApiDataService {
+  constructor() { }
+}
