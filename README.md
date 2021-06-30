@@ -2,7 +2,7 @@
 
 myFlixAngularClient is an app developed with Angular.  It provides users with information about different films, directors and genres from the 1980s. Users can sign up, update their information and add films to a list of favourites. 
 
-Here is the link to the [myFlix80s App](https://adstrat.github.io/myFlix80s-angular-client/welcome).
+Here is the link to the [myFlix80s Angular App](https://adstrat.github.io/myFlix80s-angular-client/welcome).
 
 It was developed using the [myFlix-API](https://github.com/Adstrat/myFlix80s).
 
